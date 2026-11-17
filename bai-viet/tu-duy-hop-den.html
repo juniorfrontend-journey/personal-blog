@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tư duy hộp đen: cách tôi hiểu một hệ thống mà không cần mở nó ra - Jackethee</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#2c3542",
+            "surface": "#f7f9fd",
+            "surface-dim": "#d8dade",
+            "surface-container-low": "#f2f4f8",
+            "on-surface-variant": "#56423c",
+            "surface-bright": "#f7f9fd",
+            "on-primary": "#ffffff",
+            "secondary": "#575e70",
+            "on-error-container": "#93000a",
+            "background": "#f7f9fd",
+            "outline": "#8a726b",
+            "on-primary-container": "#651a00",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#404758",
+            "on-tertiary-fixed": "#121c28",
+            "secondary-fixed-dim": "#c0c6db",
+            "secondary-fixed": "#dce2f7",
+            "surface-container-highest": "#e0e2e6",
+            "error": "#ba1a1a",
+            "tertiary": "#555f6d",
+            "on-primary-fixed": "#390b00",
+            "surface-tint": "#a0401e",
+            "primary-fixed-dim": "#ffb59d",
+            "primary": "#a0401e",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#ddc0b8",
+            "on-tertiary-fixed-variant": "#3e4755",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#d9e3f4",
+            "inverse-primary": "#ffb59d",
+            "on-primary-fixed-variant": "#812907",
+            "surface-variant": "#e0e2e6",
+            "on-background": "#191c1f",
+            "tertiary-container": "#949eae",
+            "secondary-container": "#d9dff5",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed": "#141b2b",
+            "surface-container": "#eceef2",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#5c6274",
+            "primary-container": "#f17c55",
+            "inverse-on-surface": "#eff1f5",
+            "on-surface": "#191c1f",
+            "surface-container-high": "#e6e8ec",
+            "primary-fixed": "#ffdbd0",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#bdc7d8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "headline-lg-mobile": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "headline-sm": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "body-lg": ["Nunito Sans"],
+            "display-mobile": ["Nunito Sans"],
+            "display": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+            "display-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.015em", "fontWeight": "800" }],
+            "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    ::selection {
+      background-color: #ffdbd0;
+      color: #651a00;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component Execution) -->
+<header class="w-full bg-surface border-b border-surface-container-highest sticky top-0 z-50">
+<div class="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+<a class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-surface transition-colors hover:text-primary-container" href="../index.html">
+        Jackethee
+      </a>
+<div class="flex items-center space-x-6 md:space-x-8">
+<nav class="flex items-center space-x-6 md:space-x-8">
+<a class="text-secondary font-label-md text-label-md hover:text-on-surface transition-colors duration-150" href="../index.html">
+            Trang chủ
+          </a>
+<a class="text-primary font-label-md text-label-md border-b-2 border-primary pb-1" href="../bai-viet.html">
+            Bài viết
+          </a>
+<a class="text-secondary font-label-md text-label-md hover:text-on-surface transition-colors duration-150" href="../gioi-thieu.html">
+            Giới thiệu
+          </a>
+</nav>
+<button aria-label="Tìm kiếm" class="p-2 text-secondary hover:text-primary-container transition-colors duration-150 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Container -->
+<main class="flex-grow w-full max-w-5xl mx-auto px-6 md:px-8 py-8 md:py-12">
+<!-- Article Header & Meta Section (Centered within Max Container) -->
+<header class="max-w-3xl mx-auto text-left mb-8 md:mb-10">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex items-center space-x-2 text-secondary font-label-sm text-label-sm mb-4">
+<a class="hover:text-primary transition-colors duration-150" href="../index.html">Trang chủ</a>
+<span class="text-surface-variant">/</span>
+<a class="hover:text-primary transition-colors duration-150" href="../bai-viet.html">Phân tích nghiệp vụ</a>
+<span class="text-surface-variant">/</span>
+<span class="text-on-surface truncate">Tư duy hộp đen: cách tôi hiểu một hệ thống mà không cần mở nó ra</span>
+</nav>
+<!-- Category Tag -->
+<div class="mb-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-lg border border-outline-variant/60 bg-surface-container-low font-label-sm text-label-sm text-primary tracking-wide">
+          Phân tích nghiệp vụ
+        </span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg md:font-display text-headline-lg md:text-display text-on-surface tracking-tight mb-5">
+        Tư duy hộp đen: cách tôi hiểu một hệ thống mà không cần mở nó ra
+      </h1>
+<!-- Meta Info Line & Action Icons -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-surface-container-highest">
+<div class="flex items-center space-x-3 font-label-md text-label-md text-secondary">
+<span class="text-on-surface font-semibold">Jackethee</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>17/11/2026</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+            6 phút đọc
+          </span>
+</div>
+<div class="flex items-center space-x-2">
+<button aria-label="Lưu bài viết" class="p-1.5 text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container-low" title="Lưu bài" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark_border">bookmark_border</span>
+</button>
+<button aria-label="Chia sẻ bài viết" class="p-1.5 text-secondary hover:text-primary transition-colors rounded hover:bg-surface-container-low" title="Chia sẻ" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Image Container (Wide Layout) -->
+<figure class="max-w-4xl mx-auto mb-10 md:mb-14">
+<div class="w-full aspect-[16/9] overflow-hidden rounded-xl bg-surface-container border border-surface-container-highest">
+<img alt="Biểu diễn hệ thống tư duy hộp đen" class="w-full h-full object-cover" src="../images/article-hop-den.jpg"/>
+</div>
+<figcaption class="mt-2.5 text-center font-body-sm text-body-sm text-secondary italic">
+        Sơ đồ biểu thị ranh giới hợp đồng giao tiếp giữa các thành phần độc lập trong một hệ thống phân tán.
+      </figcaption>
+</figure>
+<!-- Article Content Column (Optimized 672px reading width) -->
+<article class="max-w-[42rem] mx-auto text-on-surface">
+<!-- Lead Intro Paragraph -->
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-6">
+        Những ngày đầu tiếp cận kiến trúc trạm sạc xe điện, tôi rơi vào một cái bẫy quen thuộc của dân kỹ thuật: lao ngay vào đọc mã nguồn, dò từng bảng cơ sở dữ liệu và cố hiểu xem logic vi mô đang vận hành thế nào. Kết quả là tôi bị ngợp. Hàng ngàn dòng mã làm mờ đi bức tranh tổng quan. Cho đến khi người hướng dẫn bảo tôi: <em>“Em hãy xem cả cụm đó là một hộp đen.”</em>
+</p>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-8">
+        Tư duy hộp đen (Black-box thinking) không phải là sự lười biếng hay bỏ qua chi tiết. Ngược lại, nó là một kỷ luật tư duy ở mức độ trừu tượng hóa cao nhất: bạn định vị một thực thể phức tạp hoàn toàn thông qua cách nó tương tác với thế giới bên ngoài thay vì cấu trúc vật lý nội hàm.
+      </p>
+<!-- Section H2 -->
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-10 mb-4 pb-2 border-b border-surface-container-highest">
+        Bốn câu hỏi mở được mọi hộp
+      </h2>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-6">
+        Khi bạn đối diện với một phân hệ chưa từng gặp, dù là cổng thanh toán ngân hàng, thuật toán điều phối phụ tải điện lưới hay một module xác thực bên thứ ba, đừng bao giờ hỏi lập trình viên “bên trong viết bằng gì”. Hãy cầm bút và trả lời tuần tự bốn biến số cấu thành ranh giới:
+      </p>
+<!-- Analysis Callout / Blockquote -->
+<blockquote class="my-8 p-4 pl-5 border-l-2 border-primary-container bg-surface-container-lowest rounded-r-lg">
+<p class="font-body-lg text-body-lg text-on-surface font-medium italic mb-1">
+          “Hiểu đến biên hợp đồng là đủ, không cần biết ruột bên trong.”
+        </p>
+<cite class="block font-label-sm text-label-sm text-secondary not-italic uppercase tracking-wider">
+          — Nguyên tắc trừu tượng hoá hệ thống
+        </cite>
+</blockquote>
+<!-- Structured List -->
+<div class="space-y-4 my-6">
+<div class="flex items-start space-x-3.5 p-3.5 bg-surface-container-lowest border border-surface-container-highest rounded-lg">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold flex-shrink-0">1</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-0.5">Đầu vào là gì (Input)</h3>
+<p class="font-body-sm text-body-sm text-secondary">Tín hiệu, cấu trúc dữ liệu JSON, lệnh điều khiển từ người dùng, hay sự kiện sensor gửi về là gì? Các điều kiện tiên quyết (pre-conditions) nào bắt buộc phải thỏa mãn?</p>
+</div>
+</div>
+<div class="flex items-start space-x-3.5 p-3.5 bg-surface-container-lowest border border-surface-container-highest rounded-lg">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold flex-shrink-0">2</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-0.5">Đầu ra là gì (Output)</h3>
+<p class="font-body-sm text-body-sm text-secondary">Phản hồi trả về gồm mã trạng thái gì? Dữ liệu payload hiển thị ra màn hình hay sự kiện kích hoạt relay đóng điện? Trạng thái mong muốn sau cùng (post-conditions) ra sao?</p>
+</div>
+</div>
+<div class="flex items-start space-x-3.5 p-3.5 bg-surface-container-lowest border border-surface-container-highest rounded-lg">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold flex-shrink-0">3</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-0.5">Trạng thái nào (State)</h3>
+<p class="font-body-sm text-body-sm text-secondary">Hộp này là phi trạng thái (stateless) hay hữu trạng thái (stateful)? Nó đang ở trạng thái Chờ (Idle), Đang sạc (Charging), hay Lỗi (Suspended)? Một Input giống nhau ở hai State khác nhau sẽ tạo ra hai Output khác nhau.</p>
+</div>
+</div>
+<div class="flex items-start space-x-3.5 p-3.5 bg-surface-container-lowest border border-surface-container-highest rounded-lg">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded bg-surface-container font-label-sm text-label-sm text-primary font-bold flex-shrink-0">4</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-0.5">Quy tắc gì (Rules &amp; Constraints)</h3>
+<p class="font-body-sm text-body-sm text-secondary">Thời gian phản hồi tối đa (SLA), ngưỡng giới hạn dòng điện, logic thử lại khi mất mạng, hay các bất biến nghiệp vụ (business invariants) không bao giờ được phép vi phạm.</p>
+</div>
+</div>
+</div>
+<!-- Data Flow Diagram Placeholder -->
+<div class="my-10 p-6 bg-surface-container-lowest border border-surface-container-highest rounded-xl text-center">
+<span class="block font-label-sm text-label-sm uppercase tracking-wider text-secondary mb-4">Sơ đồ luồng dữ liệu &amp; ranh giới hệ thống</span>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 my-2">
+<!-- Input Node -->
+<div class="px-4 py-2.5 rounded-lg border border-surface-container-highest bg-surface-container-low text-secondary font-label-md text-label-md w-full sm:w-auto">
+            Input / Sự kiện
+          </div>
+<!-- Flow Arrow -->
+<span class="material-symbols-outlined text-secondary hidden sm:inline" data-icon="arrow_forward">arrow_forward</span>
+<span class="material-symbols-outlined text-secondary sm:hidden" data-icon="arrow_downward">arrow_downward</span>
+<!-- The Black Box -->
+<div class="px-6 py-4 rounded-lg bg-inverse-surface text-inverse-on-surface border border-outline font-headline-sm text-headline-sm font-semibold tracking-wide flex flex-col items-center w-full sm:w-auto">
+<span>HỘP ĐEN (HỆ THỐNG)</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim font-normal mt-0.5">Quy tắc • Trạng thái nội vi</span>
+</div>
+<!-- Flow Arrow -->
+<span class="material-symbols-outlined text-secondary hidden sm:inline" data-icon="arrow_forward">arrow_forward</span>
+<span class="material-symbols-outlined text-secondary sm:hidden" data-icon="arrow_downward">arrow_downward</span>
+<!-- Output Node -->
+<div class="px-4 py-2.5 rounded-lg border border-primary/40 bg-surface-container-low text-primary font-label-md text-label-md font-semibold w-full sm:w-auto">
+            Output / Kết quả
+          </div>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-5 max-w-md mx-auto">
+          Mô hình ranh giới giao tiếp: BA kiểm soát chặt chẽ hợp đồng dữ liệu hai đầu, nhường việc triển khai ruột thuật toán cho đội ngũ kỹ sư.
+        </p>
+</div>
+<!-- Section H2 -->
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-10 mb-4 pb-2 border-b border-surface-container-highest">
+        Khi nào cần mở hộp ra
+      </h2>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-4">
+        Đến đây, nhiều bạn sẽ thắc mắc: vậy người làm Business Analyst có bao giờ cần tháo nắp hộp đen ra xem xét? Câu trả lời là có, nhưng chỉ khi xuất hiện các triệu chứng bất thường vượt ngoài phạm vi giao ước hợp đồng.
+      </p>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-8">
+        Trường hợp đầu tiên là khi xảy ra các khiếm khuyết phi chức năng (Non-functional bugs): hệ thống đáp ứng đúng Output theo kịch bản mẫu, nhưng độ trễ tăng đột biến gấp mười lần khi số trạm sạc đồng thời vượt mốc một nghìn điểm. Lúc này, BA cần phối hợp cùng Tech Lead để xem xét liệu cấu trúc phân tầng cơ sở dữ liệu hay mô hình khóa bản ghi bên trong có đang tạo thành nút thắt cổ chai hay không. Trường hợp thứ hai là khi ta muốn đổi mới hoàn toàn mô hình kiến trúc cốt lõi.
+      </p>
+<!-- Section H2 -->
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-10 mb-4 pb-2 border-b border-surface-container-highest">
+        Kết luận
+      </h2>
+<p class="font-body-md text-body-md text-secondary leading-relaxed mb-6">
+        Tư duy hộp đen chính là lá chắn tư duy giúp chúng ta không bị đuối nước giữa biển chi tiết kỹ thuật vô tận. Với một Business Analyst xuất thân CNTT, khả năng biết <em>khi nào nên khép mắt trước chi tiết mã nguồn</em> và <em>khi nào cần phóng to vào logic biên</em> là ranh giới phân định giữa một người ghi chép đơn thuần và một nhà thiết kế giải pháp hệ thống trưởng thành.
+      </p>
+<!-- Tags Row -->
+<div class="pt-6 pb-2 border-t border-surface-container-highest flex flex-wrap gap-2 items-center">
+<span class="font-label-sm text-label-sm text-secondary mr-2">Tags:</span>
+<a class="px-2.5 py-1 rounded border border-surface-container-highest text-secondary font-label-sm text-label-sm hover:border-primary-container hover:text-primary transition-colors" href="../bai-viet.html">#Tư duy hệ thống</a>
+<a class="px-2.5 py-1 rounded border border-surface-container-highest text-secondary font-label-sm text-label-sm hover:border-primary-container hover:text-primary transition-colors" href="../bai-viet.html">#Business Analysis</a>
+<a class="px-2.5 py-1 rounded border border-surface-container-highest text-secondary font-label-sm text-label-sm hover:border-primary-container hover:text-primary transition-colors" href="../bai-viet.html">#HEVO Charge</a>
+</div>
+<!-- Author Box -->
+<div class="my-10 p-6 rounded-xl border border-surface-container-highest bg-surface-container-lowest flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-surface-container border border-surface-container-highest">
+<img alt="Chân dung Jackethee" class="w-full h-full object-cover" data-alt="Editorial portrait photograph of a young thoughtful Asian technology analyst in a calm, modern minimalist design studio. Soft natural daylight, clean off-white wall, modern tailored collar shirt. The visual tone is refined, cerebral, quiet, and intellectual, with neutral tones and soft warm terracotta highlights." src="../images/author.jpg"/>
+</div>
+<div class="flex-grow">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Jackethee</h4>
+<span class="font-label-sm text-label-sm text-secondary">Author &amp; Systems Thinker</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mb-3 leading-normal">
+            Sinh viên CNTT, làm Business Analyst cho hệ thống trạm sạc HEVO Charge. Tôi viết về những gì mình học được.
+          </p>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:underline underline-offset-4 transition-colors" href="../bai-viet.html">
+            Xem thêm bài của Jackethee →
+          </a>
+</div>
+</div>
+<!-- Prev / Next Navigation -->
+<div class="my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<a class="group p-4 rounded-lg border border-surface-container-highest bg-surface-container-lowest hover:border-outline transition-colors block" href="sinh-vien-cntt-den-ba-hevo-charge.html">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1 mb-1 group-hover:text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+            Bài trước
+</span>
+<p class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+            Từ sinh viên CNTT đến BA hệ thống trạm sạc: những gì tôi học được ở HEVO Charge
+          </p>
+</a>
+<a class="group p-4 rounded-lg border border-surface-container-highest bg-surface-container-lowest hover:border-outline transition-colors block text-left sm:text-right" href="../bai-viet.html">
+<span class="font-label-sm text-label-sm text-secondary flex items-center justify-start sm:justify-end gap-1 mb-1 group-hover:text-primary">
+Bài tiếp theo
+            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</span>
+<p class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2">
+            Xem tất cả bài viết
+          </p>
+</a>
+</div>
+</article>
+<!-- Related Posts Section (3 Cards Bento/Editorial Grid) -->
+<section class="mt-16 pt-10 border-t border-surface-container-highest">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Bài liên quan</h2>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="../bai-viet.html">Xem tất cả bài viết →</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<article class="flex flex-col bg-surface-container-lowest border border-surface-container-highest rounded-xl p-5 hover:border-outline transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-block px-2 py-0.5 rounded border border-outline-variant/60 font-label-sm text-label-sm text-primary">
+              Phân tích nghiệp vụ
+            </span>
+<span class="font-label-sm text-label-sm text-secondary">15/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-2 line-clamp-2">
+<a href="sinh-vien-cntt-den-ba-hevo-charge.html">Từ sinh viên CNTT đến BA hệ thống trạm sạc: những gì tôi học được ở HEVO Charge</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3 mb-4 flex-grow">
+            Hành trình chuyển giao từ tư duy code sang phân tích kiến trúc trạm sạc xe điện, giao thức OCPP và trải nghiệm người dùng trạm sạc.
+          </p>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+            8 phút đọc
+          </span>
+</article>
+<article class="flex flex-col bg-surface-container-lowest border border-surface-container-highest rounded-xl p-5 hover:border-outline transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-block px-2 py-0.5 rounded border border-outline-variant/60 font-label-sm text-label-sm text-primary">
+              Phân tích nghiệp vụ
+            </span>
+<span class="font-label-sm text-label-sm text-secondary">28/10/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-2 line-clamp-2">
+<a href="viet-tai-lieu-dac-ta.html">Viết tài liệu đặc tả sao cho dev đọc một lần là hiểu</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3 mb-4 flex-grow">
+            Cấu trúc hóa User Story, Acceptance Criteria và sơ đồ luồng (Flowchart) để xóa bỏ khoảng cách giữa BA và đội ngũ kỹ thuật.
+          </p>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+            9 phút đọc
+          </span>
+</article>
+<article class="flex flex-col bg-surface-container-lowest border border-surface-container-highest rounded-xl p-5 hover:border-outline transition-colors group">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-block px-2 py-0.5 rounded border border-outline-variant/60 font-label-sm text-label-sm text-primary">
+              AI
+            </span>
+<span class="font-label-sm text-label-sm text-secondary">12/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-2 line-clamp-2">
+<a href="cong-ty-agent-ai.html">Tôi xây một công ty agent bằng AI như thế nào</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3 mb-4 flex-grow">
+            Thử nghiệm phân phối công việc tự động cho các LLM agent phối hợp giải quyết bài toán nghiệp vụ phức tạp.
+          </p>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+            7 phút đọc
+          </span>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component Execution) -->
+<footer class="w-full bg-surface border-t border-surface-container-highest">
+<div class="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-center md:text-left space-y-1">
+<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary transition-colors" href="../index.html">
+          Jackethee
+        </a>
+<p class="font-body-sm text-body-sm text-secondary">
+          Góc ghi chép của một sinh viên CNTT làm Business Analyst.
+        </p>
+</div>
+<div class="flex items-center space-x-6">
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="https://github.com/juniorfrontend-journey" rel="noopener noreferrer" target="_blank">
+          GitHub
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="mailto:lienhe@jackethee.dev">
+          Email
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="../bai-viet.html">
+          Bài viết
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="../rss.xml">
+          RSS
+        </a>
+</div>
+</div>
+<div class="w-full border-t border-surface-container-highest/60 py-4 text-center">
+<p class="font-body-sm text-body-sm text-secondary">
+        © 2026 Jackethee. All rights reserved.
+      </p>
+</div>
+</footer>
+</body></html>

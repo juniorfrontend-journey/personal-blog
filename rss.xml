@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Jackethee — Blog cá nhân</title>
+  <link>https://blog.jackethee.dev</link>
+  <description>Góc ghi chép của một sinh viên CNTT làm Business Analyst.</description>
+  <language>vi</language>
+  <item>
+    <title>Tư duy hộp đen: cách tôi hiểu một hệ thống mà không cần mở nó ra</title>
+    <link>https://blog.jackethee.dev/bai-viet/tu-duy-hop-den.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/tu-duy-hop-den.html</guid>
+    <pubDate>Mon, 17 Nov 2026 12:00:00 +0700</pubDate>
+    <category>Phân tích nghiệp vụ</category>
+    <description>Một góc nhìn từ kỹ thuật đảo ngược và tư duy phân tích hệ thống giúp bạn nắm bắt luồng dữ liệu, ranh giới ca sử dụng và các ca ngoại lệ mà không bị quá tải bởi chi tiết mã nguồn.</description>
+  </item>
+  <item>
+    <title>Từ sinh viên CNTT đến BA hệ thống trạm sạc: những gì tôi học được ở HEVO Charge</title>
+    <link>https://blog.jackethee.dev/bai-viet/sinh-vien-cntt-den-ba-hevo-charge.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/sinh-vien-cntt-den-ba-hevo-charge.html</guid>
+    <pubDate>Mon, 15 Nov 2026 12:00:00 +0700</pubDate>
+    <category>Phân tích nghiệp vụ</category>
+    <description>Hành trình chuyển giao từ tư duy code sang phân tích kiến trúc trạm sạc xe điện, giao thức OCPP và trải nghiệm người dùng trạm sạc.</description>
+  </item>
+  <item>
+    <title>Tôi xây một công ty agent bằng AI như thế nào</title>
+    <link>https://blog.jackethee.dev/bai-viet/cong-ty-agent-ai.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/cong-ty-agent-ai.html</guid>
+    <pubDate>Mon, 12 Nov 2026 12:00:00 +0700</pubDate>
+    <category>AI</category>
+    <description>Thử nghiệm phân phối công việc tự động cho các LLM agent phối hợp giải quyết bài toán nghiệp vụ phức tạp.</description>
+  </item>
+  <item>
+    <title>Bò Bay 3D: làm game web bằng Three.js và tài nguyên miễn phí</title>
+    <link>https://blog.jackethee.dev/bai-viet/bo-bay-3d-threejs.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/bo-bay-3d-threejs.html</guid>
+    <pubDate>Mon, 09 Nov 2026 12:00:00 +0700</pubDate>
+    <category>Game</category>
+    <description>Bài học tối ưu hiệu năng render đồ họa 3D trực tiếp trên trình duyệt từ một dự án game thử nghiệm vui nhộn.</description>
+  </item>
+  <item>
+    <title>Quản lý nhiều tài khoản Google mà không rối: sổ quota và nguyên tắc</title>
+    <link>https://blog.jackethee.dev/bai-viet/quan-ly-tai-khoan-google.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/quan-ly-tai-khoan-google.html</guid>
+    <pubDate>Mon, 05 Nov 2026 12:00:00 +0700</pubDate>
+    <category>Công nghệ</category>
+    <description>Thiết lập hệ thống phân luồng công việc, API quota và profile trình duyệt mạch lạc cho các dự án đa khách hàng.</description>
+  </item>
+  <item>
+    <title>Học tiếng Anh từ con số 0 để lấy chứng chỉ B1</title>
+    <link>https://blog.jackethee.dev/bai-viet/hoc-tieng-anh-b1.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/hoc-tieng-anh-b1.html</guid>
+    <pubDate>Mon, 01 Nov 2026 12:00:00 +0700</pubDate>
+    <category>Học tập</category>
+    <description>Phương pháp tự học thực tế tập trung vào từ vựng chuyên ngành kỹ thuật và giao tiếp nghiệp vụ cho dân công nghệ.</description>
+  </item>
+  <item>
+    <title>Viết tài liệu đặc tả sao cho dev đọc một lần là hiểu</title>
+    <link>https://blog.jackethee.dev/bai-viet/viet-tai-lieu-dac-ta.html</link>
+    <guid>https://blog.jackethee.dev/bai-viet/viet-tai-lieu-dac-ta.html</guid>
+    <pubDate>Mon, 28 Oct 2026 12:00:00 +0700</pubDate>
+    <category>Phân tích nghiệp vụ</category>
+    <description>Cấu trúc hóa User Story, Acceptance Criteria và sơ đồ luồng (Flowchart) để xóa bỏ khoảng cách giữa BA và đội ngũ kỹ thuật.</description>
+  </item>
+</channel>
+</rss>
