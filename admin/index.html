@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Quản trị blog — Jackethee</title>
+</head>
+<body>
+  <!--
+    Trang quản trị Decap CMS.
+    Cầu nối BroadcastChannel: GitHub đặt COOP: same-origin nên cửa sổ popup
+    OAuth mất window.opener; trang callback gửi token qua kênh này, script
+    dưới chuyển tiếp lại thành sự kiện message để Decap nhận được.
+  -->
+  <script>
+    (function () {
+      try {
+        var bc = new BroadcastChannel('decap-cms-auth');
+        bc.onmessage = function (e) {
+          window.dispatchEvent(new MessageEvent('message', {
+            data: e.data, origin: window.location.origin
+          }));
+        };
+      } catch (err) { /* trình duyệt cũ: dùng postMessage thường */ }
+    })();
+  </script>
+  <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+</body>
+</html>

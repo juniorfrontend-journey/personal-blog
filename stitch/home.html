@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jackethee — IT &amp; Business Analyst Blog</title>
+<!-- Google Fonts: Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#949eae",
+            "surface-container-low": "#f2f4f8",
+            "on-secondary-fixed-variant": "#404758",
+            "inverse-primary": "#ffb59d",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#141b2b",
+            "on-primary-fixed": "#390b00",
+            "on-tertiary-fixed-variant": "#3e4755",
+            "background": "#f7f9fd",
+            "tertiary": "#555f6d",
+            "primary": "#a0401e",
+            "surface-dim": "#d8dade",
+            "surface-container": "#eceef2",
+            "on-primary-container": "#651a00",
+            "surface-variant": "#e0e2e6",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#ffdbd0",
+            "inverse-on-surface": "#eff1f5",
+            "primary-fixed-dim": "#ffb59d",
+            "secondary": "#575e70",
+            "secondary-fixed": "#dce2f7",
+            "surface": "#f7f9fd",
+            "outline": "#8a726b",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#bdc7d8",
+            "tertiary-fixed": "#d9e3f4",
+            "on-tertiary-fixed": "#121c28",
+            "on-surface-variant": "#56423c",
+            "on-error": "#ffffff",
+            "secondary-container": "#d9dff5",
+            "inverse-surface": "#2d3134",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1f",
+            "primary-container": "#f17c55",
+            "surface-container-highest": "#e0e2e6",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e6e8ec",
+            "surface-bright": "#f7f9fd",
+            "outline-variant": "#ddc0b8",
+            "on-secondary-container": "#5c6274",
+            "surface-tint": "#a0401e",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#c0c6db",
+            "on-surface": "#191c1f",
+            "on-tertiary-container": "#2c3542",
+            "on-primary-fixed-variant": "#812907"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Nunito Sans"],
+            "body-md": ["Nunito Sans"],
+            "body-sm": ["Nunito Sans"],
+            "headline-lg-mobile": ["Nunito Sans"],
+            "label-sm": ["Nunito Sans"],
+            "headline-md": ["Nunito Sans"],
+            "headline-lg": ["Nunito Sans"],
+            "headline-sm": ["Nunito Sans"],
+            "label-md": ["Nunito Sans"],
+            "display": ["Nunito Sans"],
+            "display-mobile": ["Nunito Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.015em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-surface-container-lowest">
+<!-- ==================== TOP NAVIGATION ==================== -->
+<header class="w-full bg-surface border-b border-surface-container-highest sticky top-0 z-50">
+<div class="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+<!-- Brand Logo -->
+<a class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-surface transition-colors hover:text-primary-container" href="#">
+        Jackethee
+      </a>
+<!-- Navigation Links & Search Action -->
+<div class="flex items-center space-x-6 md:space-x-8">
+<nav class="flex items-center space-x-6 md:space-x-8">
+<!-- Active Tab: Trang chủ -->
+<a class="text-primary font-label-md text-label-md border-b-2 border-primary pb-1" href="#">
+            Trang chủ
+          </a>
+<!-- Inactive Tab: Bài viết -->
+<a class="text-secondary font-label-md text-label-md hover:text-on-surface transition-colors duration-150" href="#">
+            Bài viết
+          </a>
+<!-- Inactive Tab: Giới thiệu -->
+<a class="text-secondary font-label-md text-label-md hover:text-on-surface transition-colors duration-150" href="#">
+            Giới thiệu
+          </a>
+</nav>
+<!-- Trailing Search Button -->
+<button aria-label="Tìm kiếm" class="p-2 text-secondary hover:text-primary-container transition-colors duration-150 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT CANVAS ==================== -->
+<main class="w-full max-w-5xl mx-auto px-6 md:px-12 py-12 md:py-16">
+<!-- HERO SECTION -->
+<section class="mb-16 md:mb-24">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 pb-10 border-b border-surface-container-highest">
+<!-- Circular monochrome avatar -->
+<div class="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden bg-surface-container-high border border-surface-container-highest flex-shrink-0">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="Monochrome studio portrait of an Asian male technical thinker wearing round spectacles and an understated charcoal linen shirt against a bright, minimalist studio backdrop with soft diffused lighting and crisp editorial contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrAdjMFLNBvMUteqhKruj4aouH-0nN9dFVo85YV-lstdqcZoo5HYA-kG06nMrOGXKTQUVVIV69ndqvdW_neV6RfMyTXDUPoSAXyJu1PyB4F11KtQyZFcNI6cinITLqLKtKfdAklBmutfde1vtzbhZ00Q4ba7jGislKipqR-wfrF_A7Zu0iEmvp20VDBXJRuGmF_S8TYDUPDZhLYvv5jtV3J2SfJCd4CnqfbHEWJKor19dlrPe6_o4qWAFZGvADocjuY29aTKSRng"/>
+</div>
+<div class="flex-1 space-y-3">
+<!-- Micro-label / Breadcrumb -->
+<div class="inline-flex items-center space-x-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-secondary tracking-wider">
+              BA &amp; IT BLOG • Jackethee • IT &amp; Business Analyst
+            </span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg text-headline-lg md:font-display md:text-display text-on-surface tracking-tight leading-tight">
+            Tôi viết về công nghệ, phân tích nghiệp vụ và những thứ tôi học được trên đường làm BA.
+          </h1>
+<!-- Primary Call to Action -->
+<div class="pt-2">
+<a class="inline-flex items-center space-x-2 bg-on-surface text-surface-container-lowest font-label-md text-label-md px-5 py-2.5 rounded-xl hover:bg-primary-container transition-colors duration-150" href="#featured">
+<span>Đọc bài mới nhất</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURED POST (TIÊU ĐIỂM) -->
+<section class="mb-20" id="featured">
+<!-- Section Header -->
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-highest mb-8">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">
+          TIÊU ĐIỂM
+        </h2>
+<span class="font-label-sm text-label-sm text-secondary">
+          Tháng 11 / 2026
+        </span>
+</div>
+<!-- Large Editorial Card -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 md:p-8 hover:border-primary-container transition-colors duration-200">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<!-- Image Placeholder -->
+<div class="md:col-span-6 overflow-hidden rounded-xl bg-surface-container-low aspect-[16/10] border border-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Conceptual modern architecture photo featuring geometric concrete layers, clean glass reflections, and sophisticated black box system metaphors. Bathed in serene high-key studio light with warm terracotta subtle shadow accents and sharp minimalist lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk1RhbVCzmz4RHLrVNhUmrk7bDigdIQT2lDyqhd6QhsKtlX9fYE393gFgZyWm2uNQKrKtGA-pe3jddK1myJIDqeVqgOTKkrQQ2L_ZuJcuYKFWk4JqYBpAoz2NkgYz5U--GYix8eMqo-dVwhS3YeL2npT60UaZcNtp8GzaowCDsLqre-zsJyIglMn83ana3YihP3XnBFUkW8GD5SznbToQwRT5x_TKLvgiDn2qgKMqmkn229c2NkROdzTvtggDjko2Go1ndLkE3jw"/>
+</div>
+<!-- Content Column -->
+<div class="md:col-span-6 flex flex-col justify-between space-y-4">
+<div class="space-y-3">
+<div class="flex items-center space-x-3">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2.5 py-1 rounded-xl border border-outline-variant">
+                  Phân tích nghiệp vụ
+                </span>
+<span class="font-label-sm text-label-sm text-secondary">
+                  17/11/2026
+                </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface hover:text-primary transition-colors leading-snug">
+<a href="#">Tư duy hộp đen: cách tôi hiểu một hệ thống mà không cần mở nó ra</a>
+</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                Một góc nhìn từ kỹ thuật đảo ngược và tư duy phân tích hệ thống giúp bạn nắm bắt luồng dữ liệu, ranh giới ca sử dụng và các ca ngoại lệ mà không bị quá tải bởi chi tiết mã nguồn.
+              </p>
+</div>
+<!-- Reading Meta & Action -->
+<div class="pt-4 border-t border-surface-container-high flex items-center justify-between font-label-md text-label-md">
+<span class="text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                6 phút đọc
+              </span>
+<a class="text-primary font-bold hover:text-primary-container flex items-center gap-1 transition-colors" href="#">
+<span>Đọc tiếp</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- LATEST ARTICLES (BÀI VIẾT MỚI NHẤT) -->
+<section class="mb-20">
+<!-- Section Header with Meta -->
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-surface-container-highest mb-8 gap-2">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Bài viết mới nhất
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary mt-1">
+            Ghi chép chuyên sâu, case study thực tế và kinh nghiệm phát triển
+          </p>
+</div>
+<span class="font-label-md text-label-md px-3 py-1 bg-surface-container rounded-xl text-secondary self-start md:self-auto">
+          06 bài viết
+        </span>
+</div>
+<!-- 3-Column Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                Phân tích nghiệp vụ
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">15/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Từ sinh viên CNTT đến BA hệ thống trạm sạc: những gì tôi học được ở HEVO Charge</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Hành trình chuyển giao từ tư duy code sang phân tích kiến trúc trạm sạc xe điện, giao thức OCPP và trải nghiệm người dùng trạm sạc.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              8 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                AI
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">12/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Tôi xây một công ty agent bằng AI như thế nào</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Thử nghiệm phân phối công việc tự động cho các LLM agent phối hợp giải quyết bài toán nghiệp vụ phức tạp.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              7 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                Game
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">09/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Bò Bay 3D: làm game web bằng Three.js và tài nguyên miễn phí</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Bài học tối ưu hiệu năng render đồ họa 3D trực tiếp trên trình duyệt từ một dự án game thử nghiệm vui nhộn.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              5 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                Công nghệ
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">05/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Quản lý nhiều tài khoản Google mà không rối: sổ quota và nguyên tắc</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Thiết lập hệ thống phân luồng công việc, API quota và profile trình duyệt mạch lạc cho các dự án đa khách hàng.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              6 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                Học tập
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">01/11/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Học tiếng Anh từ con số 0 để lấy chứng chỉ B1</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Phương pháp tự học thực tế tập trung vào từ vựng chuyên ngành kỹ thuật và giao tiếp nghiệp vụ cho dân công nghệ.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              4 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 flex flex-col justify-between hover:border-primary-container transition-colors duration-150">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="bg-[#FEF2F0] text-primary font-label-sm text-label-sm px-2 py-0.5 rounded-xl border border-outline-variant">
+                Phân tích nghiệp vụ
+              </span>
+<span class="font-label-sm text-label-sm text-secondary">28/10/2026</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors">
+<a href="#">Viết tài liệu đặc tả sao cho dev đọc một lần là hiểu</a>
+</h3>
+<p class="font-body-sm text-body-sm text-secondary line-clamp-3">
+              Cấu trúc hóa User Story, Acceptance Criteria và sơ đồ luồng (Flowchart) để xóa bỏ khoảng cách giữa BA và đội ngũ kỹ thuật.
+            </p>
+</div>
+<div class="pt-4 mt-6 border-t border-surface-container-high flex items-center justify-between font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+              9 phút đọc
+            </span>
+<span class="text-primary hover:text-primary-container font-bold flex items-center gap-0.5">
+              Chi tiết →
+            </span>
+</div>
+</article>
+</div>
+</section>
+<!-- NEWSLETTER BOX -->
+<section class="mb-12">
+<div class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-8 md:p-12 text-center max-w-2xl mx-auto">
+<!-- Mail Icon -->
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface-container mb-4 text-primary">
+<span class="material-symbols-outlined text-[24px]" data-icon="mail">mail</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-2">
+          Nhận bài mới qua email
+        </h3>
+<p class="font-body-md text-body-md text-secondary max-w-md mx-auto mb-6">
+          Chia sẻ kinh nghiệm thực chiến về Business Analysis, công nghệ và phát triển bản thân mỗi tuần.
+        </p>
+<!-- Form Input & Button -->
+<form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault();">
+<label class="sr-only" for="newsletter-email">Email address</label>
+<input class="flex-1 bg-surface-container-lowest border border-surface-container-highest rounded-xl px-4 py-2.5 text-on-surface font-body-sm text-body-sm placeholder:text-secondary focus:border-on-surface focus:ring-0 transition-colors" id="newsletter-email" placeholder="Nhập địa chỉ email của bạn..." required="" type="email"/>
+<button class="bg-primary-container text-surface-container-lowest font-label-md text-label-md px-6 py-2.5 rounded-xl hover:opacity-95 transition-opacity" type="submit">
+            Đăng ký
+          </button>
+</form>
+</div>
+</section>
+</main>
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full bg-surface border-t border-surface-container-highest">
+<div class="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Left: Brand & Tagline -->
+<div class="text-center md:text-left space-y-1">
+<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary transition-colors" href="#">
+          Jackethee
+        </a>
+<p class="font-body-sm text-body-sm text-secondary">
+          Góc ghi chép của một sinh viên CNTT làm Business Analyst.
+        </p>
+</div>
+<!-- Right: Links -->
+<div class="flex items-center space-x-6">
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">
+          GitHub
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="mailto:lienhe@jackethee.dev">
+          Email
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+          Substack
+        </a>
+<a class="text-secondary font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+          RSS
+        </a>
+</div>
+</div>
+<!-- Bottom Copyright -->
+<div class="w-full border-t border-surface-container-highest/60 py-4 text-center">
+<p class="font-body-sm text-body-sm text-secondary">
+        © 2026 Jackethee. All rights reserved.
+      </p>
+</div>
+</footer>
+</body></html>

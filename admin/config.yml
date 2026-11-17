@@ -1,0 +1,38 @@
+# Trang quản trị Decap CMS cho blog cá nhân Jackethee.
+# Đăng nhập bằng tài khoản GitHub (qua /api/auth), bài viết lưu thành file
+# Markdown trong content/posts/, web tự build lại sau mỗi lần lưu.
+backend:
+  name: github
+  repo: juniorfrontend-journey/personal-blog
+  branch: main
+  site_domain: blog.jackethee.dev
+  base_url: https://blog.jackethee.dev
+  auth_endpoint: api/auth
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Bài viết"
+    label_singular: "bài viết"
+    description: "Thêm, sửa, xóa bài viết. Lưu xong web tự cập nhật sau khoảng 1–3 phút."
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Slug (đường dẫn)", name: "slug", widget: "string", hint: "Chữ thường, không dấu, nối bằng gạch ngang. Ví dụ: tu-duy-hop-den" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Chuyên mục", name: "category", widget: "string" }
+      - { label: "Tóm tắt", name: "excerpt", widget: "text" }
+      - { label: "Thời gian đọc", name: "read", widget: "string", default: "5 phút đọc", hint: "Ví dụ: 6 phút đọc" }
+      - { label: "Ảnh đại diện (trong bài)", name: "hero_image", widget: "image", required: false }
+      - { label: "Mô tả ảnh đại diện", name: "hero_alt", widget: "string", required: false }
+      - { label: "Chú thích ảnh", name: "hero_caption", widget: "string", required: false }
+      - { label: "Icon (nếu không dùng ảnh)", name: "hero_icon", widget: "string", required: false, hint: "Tên icon Material Symbols, ví dụ: smart_toy, flight, translate" }
+      - { label: "Nhãn icon", name: "hero_label", widget: "string", required: false }
+      - { label: "Ảnh tiêu điểm (trang chủ)", name: "featured_image", widget: "image", required: false, hint: "Để trống thì dùng ảnh đại diện" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Nội dung", name: "body", widget: "markdown", hint: "Viết bằng Markdown: ## là tiêu đề mục, > là trích dẫn, 1. là danh sách đánh số (hiện thành thẻ có số)." }
